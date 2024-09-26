@@ -1,0 +1,124 @@
+/* public/css/style.css */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f1f1f1;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+header h1 {
+    font-size: 36px;
+    color: #67341b;
+}
+
+header p {
+    color: #a58a76;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    text-decoration: none;
+    color: #67341b;
+}
+
+.hero {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.hero h2 {
+    font-size: 42px;
+    color: #67341b;
+}
+
+.hero button {
+    background-color: #67341b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.icons {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.icons .icon {
+    display: inline-block;
+    font-size: 40px;
+    margin: 0 20px;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 50px;
+}
+
+.menu-item {
+    text-align: center;
+}
+
+.menu-item img {
+    max-width: 200px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.menu-item h3 {
+    font-size: 24px;
+    color: #67341b;
+}
+
+.menu-item p {
+    color: #a58a76;
+}
+
+.menu-item span {
+    display: block;
+    margin-top: 10px;
+    font-size: 18px;
+    color: #67341b;
+}
+
+footer {
+    text-align: center;
+    margin-top: 50px;
+    color: #a58a76;
+}
+
+footer button {
+    background-color: #67341b;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+}

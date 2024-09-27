@@ -107,6 +107,13 @@
             @endforeach
         </tbody>
     </table>
+@if(session('message'))
+    <div class="alert alert-danger  mt-4" style="background-color: #da6fab; border-radius: 10px; padding: 20px; font-size: 18px;">
+        <h4 style="margin-bottom: 10px; font-weight: bold;">Pesan dari Form:</h4>
+        <p style="margin: 0;">{{ session('message') }}</p>
+    </div>
+@endif
+
 
     <footer>
         <p>&copy; 2024 vera sifa nuroja. All rights reserved.</p>

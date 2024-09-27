@@ -19,4 +19,18 @@ class HomeController extends Controller
         // Mengirimkan data ke view dengan compact
         return view('home', ['books' => $books]);
     }
-}
+
+         public function form(Request $request) {
+        // Ambil data message dari request
+        $dataMessage = $request->message;
+
+        // Simpan data ke session
+        $request->session()->put('message', $dataMessage);
+
+        // Redirect ke halaman home
+        return redirect('/book');
+    }
+
+    }
+
+

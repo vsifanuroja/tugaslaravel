@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 
+
 Route::get('/', function () {
     return view('welcome');
 });
@@ -14,4 +15,14 @@ Route::get('/form', function () {
 });
 
 Route::post("/submit",[HomeController::class, "form"]);
+
+
+
+Route::get('/create3', [HomeController::class, 'store3']);
+Route::get('/create9', [HomeController::class, 'store9']);
+Route::get('/create8', [HomeController::class, 'store8']);
+Route::get('/create7', [HomeController::class, 'store7']);
+
+
+Route::get('/show', [HomeController::class, 'show']);
 

@@ -21,7 +21,6 @@ return new class extends Migration
             $table->string("alamat")->nullable();
             $table->integer("nomor_telpon")->nullable();
             $table->timestamps();
-
         });
     }
 

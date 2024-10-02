@@ -3,88 +3,112 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Queen Gadget Galeri</title>
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Daftar Produk</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Quicksand', sans-serif;
+            background-color: #ffe6f2;
+            color: #333;
             margin: 0;
             padding: 20px;
-            background-color: #ffe4e1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
-        h1 {
+
+        h2 {
             color: #d5006d;
             text-align: center;
             margin-bottom: 20px;
+            font-size: 2rem;
         }
+
         table {
-            width: 100%;
+            width: 80%;
+            margin: 20px auto;
             border-collapse: collapse;
-            margin: 20px 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-        }
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); }
+
         th, td {
-            border: 1px solid #f4a6b7;
             padding: 12px;
             text-align: left;
+            border: 1px solid #d5006d;
         }
+
         th {
-            background-color: #ff6f91;
+            background-color: #ff80ab;
             color: white;
             text-transform: uppercase;
+            letter-spacing: 1px;
         }
+
         tr:nth-child(even) {
-            background-color: #ffeef8;
+            background-color: #f8bbd0;
         }
+
         tr:hover {
-            background-color: #ffccdf;
+            background-color: #df6fa9;
         }
-        .success-message {
-            color: #d5006d;
-            text-align: center;
-            margin-bottom: 20px;
+
+        button {
+            background-color: #d5006d;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s, transform 0.3s;
         }
-        .no-products {
-            text-align: center;
-            color: #888;
-            padding: 20px 0;
+
+        button:hover {
+            background-color: #c51162;
+            transform: translateY(-2px);
+
+        .action-buttons {
+            display: flex;
+            gap: 5px; }
         }
     </style>
 </head>
 <body>
-    <h1>Queen Gadget Galeri</h1>
+
+    <h2>Daftar Produk</h2>
 
     <table>
         <thead>
             <tr>
-                <th>ID</th>
                 <th>Nama</th>
                 <th>Harga</th>
                 <th>Stok</th>
                 <th>Deskripsi</th>
-                <th>Create</th>
-                <th>Update</th>
+                <th>Aksi</th>
             </tr>
         </thead>
         <tbody>
-            @if ($Products->isEmpty())
-                <tr>
-                    <td colspan="7" class="no-products">No products found</td>
-                </tr>
-            @else
-                @foreach ($Products as $Product)
-                <tr>
-                    <td>{{ $Product->id }}</td>
-                    <td>{{ $Product->nama }}</td>
-                    <td>{{ $Product->harga }}</td>
-                    <td>{{ $Product->stok }}</td>
-                    <td>{{ $Product->deskripsi }}</td>
-                    <td>{{ $Product->created_at }}</td>
-                    <td>{{ $Product->updated_at }}</td>
-                </tr>
-                @endforeach
-            @endif
+            @foreach ($Products as $Product)
+            <tr>
+                <td>{{ $Product->nama }}</td>
+                <td>{{ $Product->harga }}</td>
+                <td>{{ $Product->stok }}</td>
+                <td>{{ $Product->deskripsi }}</td>
+                <td class="action-buttons">
+                    <form action="/products/{{ $Product->id }}/edit" method="GET" style="display:inline;">
+                        <button type="submit">Edit</button>
+                    </form>
+                    <form action="/products/{{ $Product->id }}" method="POST" style="display:inline;">
+                        @csrf
+                        @method('DELETE')
+                        <button type="submit">Hapus</button>
+                    </form>
+                </td>
+            </tr>
+            @endforeach
         </tbody>
     </table>
+
 </body>
 </html>

@@ -74,10 +74,36 @@ class HomeController extends Controller
         return "data sukses dikirim";
     }
 
+      public function edit($id){
+        $Products= Product::findOrFail($id);
+
+
+        return view ("editProduct",compact("Products"));
+      }
+
+public function update (Request $request, $id) {
+
+$Product = Product::findOrFail($id);
+
+$Product->nama = $request->nama;
+$Product->harga = $request->harga;
+$Product->stok = $request->stok;
+$Product->deskripsi = $request->deskripsi;
+$Product->save();
+
+return redirect('/show');
+
+}
+
+public function destroy($id){ $Product = Product::findOrFail ($id);
+$Product->delete();
+
+return redirect('/show');
+}
 
     public function show()
     {
         $Products = Product::all();
-        return view('tableproduct', compact('Products')); 
+        return view('tableproduct', compact('Products'));
     }
 }

@@ -6,6 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Daftar Produk</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             font-family: 'Quicksand', sans-serif;
@@ -31,7 +32,8 @@
             border-collapse: collapse;
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); }
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
 
         th, td {
             padding: 12px;
@@ -67,10 +69,33 @@
         button:hover {
             background-color: #c51162;
             transform: translateY(-2px);
+        }
 
         .action-buttons {
             display: flex;
-            gap: 5px; }
+            gap: 5px;
+        }
+
+        /* Gaya untuk pagination */
+        .pagination {
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .page-item.active .page-link {
+            background-color: #d5006d;
+            border-color: #d5006d;
+            color: white;
+        }
+
+        .page-link {
+            color: #d5006d;
+            border: 1px solid #d5006d;
+        }
+
+        .page-link:hover {
+            background-color: #ff80ab;
+            color: white;
         }
     </style>
 </head>
@@ -81,6 +106,7 @@
     <table>
         <thead>
             <tr>
+                <th>No</th>
                 <th>Nama</th>
                 <th>Harga</th>
                 <th>Stok</th>
@@ -89,10 +115,11 @@
             </tr>
         </thead>
         <tbody>
-            @foreach ($Products as $Product)
+            @foreach ($Products as $index => $Product)
             <tr>
+                <td>{{ $index + $Products->firstItem() }}</td>
                 <td>{{ $Product->nama }}</td>
-                <td>{{ $Product->harga }}</td>
+                <td>{{ number_format($Product->harga, 2, ',', '.') }}</td>
                 <td>{{ $Product->stok }}</td>
                 <td>{{ $Product->deskripsi }}</td>
                 <td class="action-buttons">
@@ -109,6 +136,12 @@
             @endforeach
         </tbody>
     </table>
+
+    <nav aria-label="Page navigation">
+        <ul class="pagination">
+            {{ $Products->links() }}
+        </ul>
+    </nav>
 
 </body>
 </html>

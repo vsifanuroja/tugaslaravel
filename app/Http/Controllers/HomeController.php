@@ -103,7 +103,7 @@ return redirect('/show');
 
     public function show()
     {
-        $Products = Product::all();
+        $Products = Product::Paginate(3);
         return view('tableproduct', compact('Products'));
     }
 }

@@ -75,8 +75,6 @@
             display: flex;
             gap: 5px;
         }
-
-        /* Gaya untuk pagination */
         .pagination {
             justify-content: center;
             margin-top: 20px;

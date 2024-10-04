@@ -9,7 +9,7 @@
     <style>
         body {
             background-color: #ffe6f2;
-            font-family: 'Quicksand', sans-serif; /* Menggunakan font Quicksand */
+            font-family: 'Quicksand', sans-serif; 
         }
 
         #arunika {

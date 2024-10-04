@@ -18,7 +18,7 @@ Route::post("/submit",[HomeController::class, "form"]);
 
 
 
-Route::get('/create3', [HomeController::class, 'store3']);
+Route::post('/create3', [HomeController::class, 'store3']);
 Route::get('/create9', [HomeController::class, 'store9']);
 Route::get('/create8', [HomeController::class, 'store8']);
 Route::get('/create7', [HomeController::class, 'store7']);
@@ -32,4 +32,5 @@ Route::delete('/products/{id}', [HomeController::class, 'destroy']);
 
 Route::get('/products/{id}/edit', [HomeController::class, 'edit']);
 
+Route::get("/input", [HomeController::class, "input"]);
 
